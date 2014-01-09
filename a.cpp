@@ -2,30 +2,22 @@
 #include <memory>
 using namespace std;
 
-void deleteInt(int * p){
-   cout<<"now I delete "<<*p<<endl;
-   delete p;
 
-}
-
-void f(){
-   unique_ptr<int, decltype(deleteInt) *> x(new int(9), deleteInt);
-    
-    cout<<"_______"<<endl;
-}
-
-
-void weak(){
-	auto p=make_shared<int>(34);
-    weak_ptr<int> wp(p);
-    p=nullptr;
-    if(auto sp=wp.lock())
-    {
-    	cout<<*sp<<endl;
-    }
-
-}
 
 int main(){
-    weak();
+    
+    int *lt=new int[5]{1,3};
+       
+for(int i=0;i<5;i++)
+        cout<<lt[i]<<endl; 
+
+    string * gs=new string[10]{"a","b","c",string(10,'o')};
+for(int i=0;i<10;i++)
+        cout<<gs[i]<<endl; 
+ 
+ delete [] lt;
+
+ delete [] gs;
+
+
 }
