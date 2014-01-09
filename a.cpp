@@ -14,6 +14,18 @@ void f(){
     cout<<"_______"<<endl;
 }
 
+
+void weak(){
+	auto p=make_shared<int>(34);
+    weak_ptr<int> wp(p);
+    p=nullptr;
+    if(auto sp=wp.lock())
+    {
+    	cout<<*sp<<endl;
+    }
+
+}
+
 int main(){
-    f();
+    weak();
 }
