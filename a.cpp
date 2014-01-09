@@ -2,8 +2,18 @@
 #include <memory>
 using namespace std;
 
-int main(){
-    unique_ptr<int> x(new int(9));
+void deleteInt(int * p){
+   cout<<"now I delete "<<*p<<endl;
+   delete p;
+
+}
+
+void f(){
+   unique_ptr<int, decltype(deleteInt) *> x(new int(9), deleteInt);
     
-    cout<<*x<<endl;
+    cout<<"_______"<<endl;
+}
+
+int main(){
+    f();
 }
